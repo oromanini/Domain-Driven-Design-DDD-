@@ -2,8 +2,8 @@
 
 namespace Alura\Arquitetura\Academico\Dominio\Aluno;
 
-use Alura\Arquitetura\Academico\Dominio\Cpf;
-use Alura\Arquitetura\Academico\Dominio\Evento;
+use Alura\Arquitetura\Compartilhado\Dominio\Cpf;
+use Alura\Arquitetura\Compartilhado\Dominio\Evento\Evento;
 
 class AlunoMatriculado implements Evento
 {
@@ -21,5 +21,15 @@ class AlunoMatriculado implements Evento
     public function cpfAluno(): Cpf
     {
         return $this->cpf;
+    }
+
+    public function nome(): string
+    {
+        return 'aluno_matriculado';
+    }
+
+    public function jsonSerialize(): mixed
+    {
+        return get_object_vars($this);
     }
 }

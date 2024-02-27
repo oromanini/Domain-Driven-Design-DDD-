@@ -1,6 +1,6 @@
 <?php
 
-namespace Alura\Arquitetura\Academico\Dominio;
+namespace Alura\Arquitetura\Compartilhado\Dominio\Evento;
 
 abstract class OuvinteDeEvento
 {

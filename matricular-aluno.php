@@ -2,7 +2,11 @@
 
 use Alura\Arquitetura\Academico\Aplicacao\Aluno\MatricularAluno\MatricularAluno;
 use Alura\Arquitetura\Academico\Aplicacao\Aluno\MatricularAluno\MatricularAlunoDto;
+use Alura\Arquitetura\Academico\Dominio\Aluno\LogAlunoMatriculado;
 use Alura\Arquitetura\Academico\Infra\Aluno\RepositorioDeAlunoEmMemoria;
+use Alura\Arquitetura\Compartilhado\Dominio\Evento\PublicadorDeEvento;
+use Alura\Arquitetura\Gamificacao\Aplicação\GeraSeloDeNovato;
+use Alura\Arquitetura\Gamificação\Infra\Selo\RepositorioDeSeloEmMemoria;
 
 require 'vendor/autoload.php';
 
@@ -15,5 +19,11 @@ $numero = $argv[5];
 $usecase = new MatricularAluno(
     new RepositorioDeAlunoEmMemoria()
 );
+
+$publicador = new PublicadorDeEvento();
+$publicador->adicionarOuvinte(new LogAlunoMatriculado());
+$publicador->adicionarOuvinte(new GeraSeloDeNovato(
+    new RepositorioDeSeloEmMemoria()
+));
 
 $usecase->executa(new MatricularAlunoDto($cpf, $nome, $email));

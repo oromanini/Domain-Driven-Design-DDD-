@@ -2,7 +2,7 @@
 
 namespace Alura\Arquitetura\Gamificação\Dominio\Selo;
 
-use Alura\Arquitetura\Academico\Dominio\Cpf;
+use Alura\Arquitetura\Compartilhado\Dominio\Cpf;
 
 interface RepositorioDeSelo
 {

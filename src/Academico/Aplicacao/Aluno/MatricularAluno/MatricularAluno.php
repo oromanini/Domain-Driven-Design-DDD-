@@ -6,7 +6,7 @@ use Alura\Arquitetura\Academico\Dominio\Aluno\Aluno;
 use Alura\Arquitetura\Academico\Dominio\Aluno\AlunoMatriculado;
 use Alura\Arquitetura\Academico\Dominio\Aluno\LogAlunoMatriculado;
 use Alura\Arquitetura\Academico\Dominio\Aluno\RepositorioDeAluno;
-use Alura\Arquitetura\Academico\Dominio\PublicadorDeEvento;
+use Alura\Arquitetura\Compartilhado\Dominio\Evento\PublicadorDeEvento;
 
 class MatricularAluno
 {
